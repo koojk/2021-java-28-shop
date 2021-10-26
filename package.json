@@ -1,0 +1,23 @@
+{
+  "name": "28.shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "cross-env NODE_ENV=development node app",
+    "serve": "cross-env NODE_ENV=development nodemon app",
+    "build": "cross-env NODE_ENV=production nodemon app",
+    "start": "cross-env NODE_ENV=production pm2 start app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koojk/2021-java-28-shop.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/koojk/2021-java-28-shop/issues"
+  },
+  "homepage": "https://github.com/koojk/2021-java-28-shop#readme"
+}
