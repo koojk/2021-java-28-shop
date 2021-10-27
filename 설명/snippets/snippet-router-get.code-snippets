@@ -1,0 +1,17 @@
+{
+  "comment": {
+    "scope": "javascript",
+    "prefix": "rtr",
+    "body": [
+      "router.get('', async (req, res, next) => {",
+      "  try {",
+      "    res.status(200).json()",
+      "  }",
+      "  catch(err) {",
+      "    next(createError(err))",
+      "  }",
+      "})"
+    ],
+    "description": "router init"
+  }
+}
