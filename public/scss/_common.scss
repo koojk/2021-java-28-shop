@@ -54,3 +54,21 @@ a:not(.btn) {
   max-width: 970px;
   margin: auto;
 }
+
+.bullet {
+  &.circle {
+    &:before {
+      border-radius: 0.25em;
+      width: 0.5em;
+      height: 0.5em;
+    }
+  }
+  &:before {
+    display: inline-block;
+    content: '';
+    height: 0.5em;
+    width: 0.25em;
+    background-color: $success-color;
+    margin-right: 0.5em;
+  }
+}
