@@ -9,27 +9,15 @@
     <a href="/admin/auth/logout" class="btn btn-secondary"> 로그아웃 </a>
   </div>
   <nav class="navi-wrap">
-    <a href="/admin" class="navi">
-      <img src="/img/admin/b0.jpg" alt="icon" />
+    <% for(let v of links.main) { %>
+    <a href="<%= v.path %>" class="navi">
+      <% if(secondPath===v.path2) { %>
+      <img src="/img/admin/<%= v.src %>_on.jpg" alt="icon" />
+      <% } else { %>
+      <img src="/img/admin/<%= v.src %>.jpg" alt="icon" />
+      <% } %>
     </a>
-    <a href="/admin/user" class="navi">
-      <img src="/img/admin/b1.jpg" alt="icon" />
-    </a>
-    <a href="/admin/prd" class="navi">
-      <img src="/img/admin/b2.jpg" alt="icon" />
-    </a>
-    <a href="/admin/order" class="navi">
-      <img src="/img/admin/b3.jpg" alt="icon" />
-    </a>
-    <a href="/admin/board/init" class="navi">
-      <img src="/img/admin/b4.jpg" alt="icon" />
-    </a>
-    <a href="/admin" class="navi">
-      <img src="/img/admin/b6.jpg" alt="icon" />
-    </a>
-    <a href="/admin" class="navi">
-      <img src="/img/admin/b9.jpg" alt="icon" />
-    </a>
+    <% } %>
   </nav>
 </header>
 <script></script>
