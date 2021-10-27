@@ -23,12 +23,16 @@
   "javascript.updateImportsOnFileMove.enabled": "always",
   "terminal.integrated.defaultProfile.windows": "Command Prompt",
   "terminal.integrated.cursorStyle": "line",
-  "liveSassCompile.settings.excludeList": ["**/node_modules/**", "**/.vscode/**", "**/.history/**"],
+  "liveSassCompile.settings.excludeList": [
+    "**/node_modules/**",
+    "**/.vscode/**",
+    "**/.history/**"
+  ],
   "liveSassCompile.settings.formats": [
     {
       "format": "compressed",
       "extensionName": ".css",
-      "savePath": "/public/css"
+      "savePath": "~/../../css"
     }
   ],
   "liveSassCompile.settings.generateMap": false,
