@@ -72,3 +72,90 @@ a:not(.btn) {
     margin-right: 0.5em;
   }
 }
+
+// header-wrapper
+$color_1: #f9f9f9;
+$color_2: darkslategrey;
+$color_3: inherit;
+$background_color_1: darkslategrey;
+$background_color_2: rgba(0, 0, 0, 0.5);
+$background_color_3: mistyrose;
+$background_color_4: #863b61;
+$background_color_5: #a34a77;
+
+.header-wrapper {
+  background-color: $background_color_1;
+  color: $color_1;
+  display: flex;
+  align-items: center;
+  h1.logo {
+    font-size: 1.25em;
+    padding: 0.75em;
+  }
+  .navi-wrap {
+    display: flex;
+    margin-left: auto;
+    .navi {
+      padding: 1em 1.5em;
+      &:hover {
+        background-color: $background_color_3;
+        color: $color_2;
+      }
+    }
+    .navi.ex {
+      background-color: $background_color_2;
+    }
+  }
+  a {
+    &:link {
+      text-decoration: none;
+      color: $color_3;
+    }
+    &:visited {
+      text-decoration: none;
+      color: $color_3;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $color_3;
+    }
+    &:active {
+      text-decoration: none;
+      color: $color_3;
+    }
+  }
+  .lang-wrap {
+    margin: 0 1.5em;
+    font-size: 0.875em;
+    .navi {
+      opacity: 0.5;
+    }
+    .navi.active {
+      opacity: 0.85;
+    }
+    span {
+      opacity: 0.5;
+    }
+  }
+  .bt-navi {
+    position: relative;
+    cursor: pointer;
+    .navi-sub {
+      position: absolute;
+      width: 100%;
+      background-color: $background_color_4;
+      left: 0;
+      top: 3em;
+      display: none;
+      .sub {
+        width: 100%;
+        display: block;
+        padding: 1em;
+        color: $color_1;
+        &:hover {
+          background-color: $background_color_5;
+        }
+      }
+    }
+  }
+}

@@ -8,11 +8,9 @@ fs.readdirSync(__dirname)
   .forEach((file) => {
     const { name, router: childRouter } = require(path.join(__dirname, file));
     router.use(name, childRouter);
-    if (name === '/auth') {
-      router.use('/', (req, res, next) => {
-        res.redirect('/admin/auth');
-      });
-    }
   });
 
+router.get('/', (req, res, next) => {
+  res.render('admin/index', { css: 'admin-index' });
+});
 module.exports = router;
