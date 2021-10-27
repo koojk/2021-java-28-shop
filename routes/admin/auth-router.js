@@ -4,7 +4,7 @@ const router = express.Router();
 const { error } = require('../../modules/util');
 
 router.get(['/', '/login'], (req, res, next) => {
-  res.send('login');
+  res.render('admin/auth/login');
 });
 
 module.exports = { name: '/auth', router };
