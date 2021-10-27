@@ -75,8 +75,8 @@ a:not(.btn) {
 
 // header-wrapper
 .header-wrapper {
-  background-color: #f4f4f4;
   .header-top {
+    background-color: #fafafa;
     border-top: 3px solid #575755;
     border-bottom: 1px solid $secondary-color;
     @include flex($h: space-between, $v: flex-start);
@@ -96,11 +96,15 @@ a:not(.btn) {
   }
   .navi-wrap {
     @include flex($h: center);
+    background-color: #f4f4f4;
     border-bottom: 1px solid $secondary-color;
     .navi {
       &:hover {
         opacity: 0.7;
       }
     }
+  }
+  .sub-navi {
+    margin: 1.5em auto 1em auto;
   }
 }
