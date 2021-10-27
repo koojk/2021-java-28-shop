@@ -51,7 +51,7 @@ a:not(.btn) {
 
 .wrapper {
   width: 96%;
-  max-width: 970px;
+  max-width: 1140px;
   margin: auto;
 }
 
@@ -105,6 +105,30 @@ a:not(.btn) {
     }
   }
   .sub-navi {
-    margin: 1.5em auto 1em auto;
+    margin: 1.5em auto 0 auto;
+  }
+}
+
+section.wrapper {
+  min-height: 70vh;
+  padding: 2em 1.5em 1.5em 1.5em;
+  border-bottom: 1px solid #dee2e6;
+  border-left: 1px solid #dee2e6;
+  border-right: 1px solid #dee2e6;
+}
+
+.nav-tabs {
+  .nav-item.show {
+    .nav-link {
+      color: $primary-color;
+      border-color: #dee2e6 #dee2e6 #fff;
+    }
+  }
+  .nav-link {
+    color: $secondary-color;
+    &.active {
+      color: $primary-color;
+      border-color: #dee2e6 #dee2e6 #fff;
+    }
   }
 }
