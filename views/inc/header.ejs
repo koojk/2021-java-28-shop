@@ -1,3 +1,4 @@
+<% let { current, currents, second, init } = path %>
 <header class="header-wrapper">
   <div class="header-top">
     <h1 class="logo">
@@ -13,9 +14,9 @@
     </a>
   </div>
   <nav class="navi-wrap">
-    <% for(let v of links.main) { %>
+    <% for(let v of init.main) { %>
     <a href="<%= v.path %>" class="navi" <%=(v.target ? `target="${v.target}" ` : '' ) %>>
-      <% if(secondPath===v.path2) { %>
+      <% if(second === v.path2) { %>
       <img src="/img/admin/<%= v.src %>_on.jpg" alt="icon">
       <% } else { %>
       <img src="/img/admin/<%= v.src %>.jpg" alt="icon">
