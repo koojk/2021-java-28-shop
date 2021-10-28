@@ -42,4 +42,4 @@ module.exports = {
       { path: '', name: '게시물 관리' },
     ],
   },
-};
+}
