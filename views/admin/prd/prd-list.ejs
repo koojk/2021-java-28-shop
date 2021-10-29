@@ -1,6 +1,36 @@
 <%- include('../../inc/head.ejs') %>
 <%- include('../../inc/header.ejs') %>
 <section class="prd-wrapper wrapper">
-  상품 관리
+  <table class="table text-center border-bottom">
+    <thead class="thead-dark">
+      <tr>
+        <th>번호</th>
+        <th>상품이미지</th>
+        <th>상품명</th>
+        <th>가격</th>
+        <th>상태</th>
+        <th>관리</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="text-left" style="width: 120px;">
+          <img src="/img/f1.jpg" alt="prd" class="mw-100">
+        </td>
+        <td>매우 맛있는 아이스크림</td>
+        <td>3,000원</td>
+        <td>판매중</td>
+        <td>
+          <a href="/admin/prd/1">수정</a>
+          <a href="/admin/prd/1">삭제</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <%- //include('../inc/pager.ejs') %>
+  <div class="text-center my-4">
+    <a href="/admin/board?type=create" class="btn btn-primary">글작성</a>
+  </div>
 </section>
 <%- include('../../inc/foot.ejs') %>
