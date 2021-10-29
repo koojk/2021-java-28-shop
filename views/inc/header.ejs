@@ -1,19 +1,30 @@
-<!DOCTYPE html>
-<html lang="ko">
+<header class="header-wrapper">
+  <div class="header-top">
+    <h1 class="logo">
+      <a href="/admin">
+        <img src="/img/admin/top_logo.jpg" alt="logo">
+      </a>
+    </h1>
+    <a href="/" class="btn btn-success">
+      사이트 바로가기
+    </a>
+    <a href="/admin/auth/logout" class="btn btn-secondary">
+      로그아웃
+    </a>
+  </div>
+  <nav class="navi-wrap">
+    <% for(let v of init.main) { %>
+    <a href="<%= v.link %>" class="navi" <%=(v.target ? `target="${v.target}" ` : '' ) %>>
+      <% if(v.path.includes(second)) { %>
+      <img src="/img/admin/<%= v.src %>_on.jpg" alt="icon" class="mw-100">
+      <% } else { %>
+      <img src="/img/admin/<%= v.src %>.jpg" alt="icon" class="mw-100">
+      <% } %>
+    </a>
+    <% } %>
+  </nav>
+  <%- include('./tab.ejs') %>
+</header>
+<script>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>쇼핑몰 관리자 </title>
-  <link rel="stylesheet" href="/css/all.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons">
-  <link rel="stylesheet" href="/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/css/admin-<%= currents[1] %>.css">
-  <script src="/js/jquery.min.js"></script>
-  <script src="/js/moment.min.js"></script>
-  <script src="/js/lodash.min.js"></script>
-  <script src="/js/util.js"></script>
-</head>
-
-<body>
+</script>
