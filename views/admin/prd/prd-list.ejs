@@ -1,6 +1,6 @@
 <%- include('../../inc/head.ejs') %>
 <%- include('../../inc/header.ejs') %>
-<section class="prd-wrapper wrapper">
+<section class="prd-wrapper list-wrapper wrapper">
   <table class="table text-center border-bottom">
     <thead class="thead-dark">
       <tr>
@@ -15,15 +15,24 @@
     <tbody>
       <tr>
         <td>1</td>
-        <td class="text-left" style="width: 120px;">
-          <img src="/img/f1.jpg" alt="prd" class="mw-100">
+        <td class="td-icon">
+          <img src="/img/f1.jpg" alt="prd">
         </td>
-        <td>매우 맛있는 아이스크림</td>
-        <td>3,000원</td>
-        <td>판매중</td>
+        <td class="text-left">매우 맛있는 아이스크림</td>
+        <td class="text-right">
+          <div class="price-sale">2,500원</div>
+          <div class="price-ori">3,000원</div>
+        </td>
         <td>
-          <a href="/admin/prd/1">수정</a>
-          <a href="/admin/prd/1">삭제</a>
+          <select name="status" class="form-control">
+            <option value="0">판매중단</option>
+            <option value="1">재고없음</option>
+            <option value="5">판매중</option>
+          </select>
+        </td>
+        <td>
+          <a href="/admin/prd/1" class="btn btn-success">수정</a>
+          <a href="/admin/prd/1" class="btn btn-danger">삭제</a>
         </td>
       </tr>
     </tbody>
