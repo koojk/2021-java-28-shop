@@ -4,7 +4,7 @@
 <script src="/js/axios.min.js"></script> 
 <script src="/js/validator.min.js"></script> 
 <section class="user-wrapper update-wrapper wrapper">
-  <form name="userForm" method="POST">
+  <form name="userForm" method="POST" action="/admin/user">
     <% if(type === 'update') { %> 
       <input type="hidden" name="_method" value="PUT">
       <input type="hidden" name="id" value="1">
@@ -18,7 +18,7 @@
               <input type="text" name="userid" class="form-control" placeholder="아이디" style="width: 200px;">
               <div class="valid userid"></div>
             <% } else { %> 
-              <b>booldook</b>
+              <b>koojk</b>
             <% } %> 
           </td>
         </tr>
@@ -60,9 +60,9 @@
               <% } %>
             </select>
             <span class="px-2">-</span>
-            <input type="text" name="tel2" class="form-control" style="max-width: 80px;">
+            <input type="text" name="tel2" class="form-control" style="max-width: 80px;" min="3" maxlength="4">
             <span class="px-2">-</span>
-            <input type="text" name="tel3" class="form-control" style="max-width: 80px;">
+            <input type="text" name="tel3" class="form-control" style="max-width: 80px;" min="4" maxlength="4">
           </td>
         </tr>
         <tr>
@@ -84,7 +84,9 @@
         </tr>
         <tr>
           <td colspan="2" class="text-center">
-            <button class="btn btn-success">수정</button>
+            <button class="btn btn-success">
+              <%= (type === 'create' ? '가입' : '수정') %>
+            </button>
             <a href="/admin/user" class="btn btn-secondary">리스트</a>
           </td>
         </tr>
