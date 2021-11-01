@@ -47,4 +47,5 @@ shop.motive.co.kr/admin/
 [DELETE]  shop.motive.co.kr/admin/board/1       - 게시판 삭제
 
 shop.motive.co.kr/api/
+[GET] shop.motive.co.kr/api/verify
 */
