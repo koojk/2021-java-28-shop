@@ -2,20 +2,34 @@
 <%- include('../../inc/header.ejs') %>
 <section class="user-wrapper update-wrapper wrapper">
   <form name="updateForm" method="POST">
-    <input type="hidden" name="_method" value="PUT">
-    <input type="hidden" name="id" value="1">
+    <% if(type === 'update') { %> 
+      <input type="hidden" name="_method" value="PUT">
+      <input type="hidden" name="id" value="1">
+    <% } %> 
     <table class="user-tbl table">
       <tbody>
         <tr>
           <td class="title">아이디</td>
           <td class="content">
-            <b>koojk</b>
+            <b>booldook</b>
           </td>
         </tr>
         <tr>
           <td class="title">이름</td>
           <td class="content">
             <input type="text" name="username" class="form-control" placeholder="이름(필수사항)" style="max-width: 200px;">
+          </td>
+        </tr>
+        <tr>
+          <td class="title">패스워드</td>
+          <td class="content">
+            <input type="password" name="userpw" class="form-control" placeholder="비밀번호" style="max-width: 200px;">
+          </td>
+        </tr>
+        <tr>
+          <td class="title">패스워드 확인</td>
+          <td class="content">
+            <input type="password" name="userpw_re" class="form-control" placeholder="비밀번호확인" style="max-width: 200px;">
           </td>
         </tr>
         <tr>
@@ -66,4 +80,5 @@
 
   </div>
 </section>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <%- include('../../inc/foot.ejs') %>
