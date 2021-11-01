@@ -13,7 +13,7 @@ const locals = require('./middlewares/locals-mw');
 const { sequelize } = require('./models');
 
 /*************** sequelize init **************/
-require('./modules/sequelize-init')(sequelize);
+require('./modules/sequelize-init')(sequelize, true);
 
 /*************** server init **************/
 require('./modules/server-init')(app, process.env.PORT);

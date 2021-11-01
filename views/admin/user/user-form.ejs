@@ -1,5 +1,8 @@
 <%- include('../../inc/head.ejs') %>
 <%- include('../../inc/header.ejs') %>
+<script src="/js/promise.polyfill.min.js"></script> 
+<script src="/js/axios.min.js"></script> 
+<script src="/js/validator.min.js"></script> 
 <section class="user-wrapper update-wrapper wrapper">
   <form name="userForm" method="POST">
     <% if(type === 'update') { %> 
