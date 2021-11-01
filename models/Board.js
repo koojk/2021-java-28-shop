@@ -29,5 +29,10 @@ module.exports = (sequelize, DataType) => {
       paranoid: true,
     }
   );
+
+  Board.associate = (models) => {
+    Board.belongsTo(models.User);
+  };
+
   return Board;
 };
