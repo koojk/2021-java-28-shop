@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const router = express.Router();
 const createError = require('http-errors');
+const bcrypt = require('bcrypt');
 const { error, telNumber, alert } = require('../../modules/util');
 const { User } = require('../../models');
 
@@ -30,8 +31,8 @@ router.get('/:id', (req, res, next) => {
 // 회원 저장
 router.post('/', async (req, res, next) => {
   try {
-    // req.body.userpw = await bcrypt.hash(req.body.userpw, 8)
-    await User.create({ ...req.body });
+    const user = await User.create(req.body);
+    user.save();
     res.send(alert('회원가입이 완료되었습니다.', '/admin/user'));
   } catch (err) {
     next(createError(err));
