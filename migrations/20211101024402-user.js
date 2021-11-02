@@ -6,7 +6,7 @@ module.exports = {
     await queryInterface.addColumn('user', 'addrRoad', {
       type: Sequelize.STRING(255),
     });
-    await queryInterface.addColumn('user', 'addrJibum', {
+    await queryInterface.addColumn('user', 'addrJibun', {
       type: Sequelize.STRING(255),
     });
     await queryInterface.addColumn('user', 'addrComment', {
