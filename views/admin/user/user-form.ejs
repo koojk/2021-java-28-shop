@@ -1,25 +1,17 @@
 <%- include('../../inc/head.ejs') %>
 <%- include('../../inc/header.ejs') %>
-<script src="/js/promise.polyfill.min.js"></script> 
-<script src="/js/axios.min.js"></script> 
-<script src="/js/validator.min.js"></script> 
+<script src="/js/promise.polyfill.min.js"></script>
+<script src="/js/axios.min.js"></script>
+<script src="/js/validator.min.js"></script>
 <section class="user-wrapper update-wrapper wrapper">
   <form name="userForm" method="POST" action="/<%= currents[0] %>/user">
-    <% if(type === 'update') { %> 
-      <input type="hidden" name="_method" value="PUT">
-      <input type="hidden" name="id" value="1">
-    <% } %> 
     <table class="user-tbl table">
       <tbody>
         <tr>
           <td class="title require">아이디</td>
           <td class="content">
-            <% if(type === 'create') { %>
-              <input type="text" name="userid" class="form-control" placeholder="아이디" style="width: 200px;">
-              <div class="valid userid"></div>
-            <% } else { %> 
-              <b>koojk</b>
-            <% } %> 
+            <input type="text" name="userid" class="form-control" placeholder="아이디" style="width: 200px;">
+            <div class="valid userid"></div>
           </td>
         </tr>
         <tr>
@@ -68,15 +60,18 @@
         <tr>
           <td class="title" rowspan="2">주소</td>
           <td class="content form-inline">
-            <input type="text" name="addrPost" class="form-control mr-2" readonly style="max-width: 120px;" placeholder="우편번호">
+            <input type="text" name="addrPost" class="form-control mr-2" readonly style="max-width: 120px;"
+              placeholder="우편번호">
             <a class="btn btn-primary" id="btPostcode">우편번호찾기</a>
           </td>
         </tr>
         <tr>
           <td>
             <div class="d-flex">
-              <input type="text" name="addrRoad" class="form-control mb-2 flex-glow-1 mr-2" readonly placeholder="도로명주소">
-              <input type="text" name="addrComment" class="form-control" readonly style="width: 120px;" placeholder="참고항목">
+              <input type="text" name="addrRoad" class="form-control mb-2 flex-glow-1 mr-2" readonly
+                placeholder="도로명주소">
+              <input type="text" name="addrComment" class="form-control" readonly style="width: 120px;"
+                placeholder="참고항목">
             </div>
             <input type="text" name="addrJibun" class="form-control mb-2" readonly placeholder="지번주소">
             <input type="text" name="addrDetail" class="form-control" placeholder="상세주소">
@@ -84,18 +79,13 @@
         </tr>
         <tr>
           <td colspan="2" class="text-center">
-            <button class="btn btn-success">
-              <%= (type === 'create' ? '가입' : '수정') %>
-            </button>
+            <button class="btn btn-success">가입</button>
             <a href="/<%= currents[0] %>/user" class="btn btn-secondary">리스트</a>
           </td>
         </tr>
       </tbody>
     </table>
   </form>
-  <div class="btn-wrap">
-
-  </div>
 </section>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script src="/js/user/validation.js"></script>
