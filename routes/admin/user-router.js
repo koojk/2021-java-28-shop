@@ -19,7 +19,7 @@ router.get('/', (req, res, next) => {
 router.get('/', pager(User), async (req, res, next) => {
   try {
     let { field = 'id', search = '', sort = 'desc' } = req.query;
-    const users = await User.searchUser(req.query, req.pager);
+    const users = await User.searchList(req.query, req.pager);
     const ejs = {
       telNumber,
       pager: req.pager,
