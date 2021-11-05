@@ -16,7 +16,12 @@ module.exports = {
       });
     }
     await queryInterface.bulkInsert('Board', insertBoard);
-    const files = [''];
+    const files = [
+      '211105_8eb5cb2b-c351-4532-8e84-8a104b38e307',
+      '211105_931fa919-7a19-4451-ace0-deceeaa1fade',
+      '211105_af774b41-9db5-452d-805a-450a6b3a6b45',
+      '211105_de47bbc9-7d24-4a54-8217-20b687c99cfb',
+    ];
     for (let i = 50; i < 120; i++) {
       insertFile.push({
         board_id: i,
