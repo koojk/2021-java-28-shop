@@ -7,7 +7,8 @@ module.exports = (addQuery = []) => {
     req.query.page = req.query.page || 1;
     req.query.status = req.query.status || '';
     for (let value of addQuery) {
-      let [k, v] = Object.entries(value);
+      let k = Object.keys(value);
+      let [v] = Object.values(value);
       req.query[k] = req.query[k] || v;
     }
     for (let [k, v] of Object.entries(req.query)) res.locals[k] = v;
