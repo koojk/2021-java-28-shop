@@ -20,13 +20,12 @@ router.get('/', boardInit('query'), (req, res, next) => {
 // 리스트
 router.get('/', queries(), boardInit('query'), async (req, res, next) => {
   try {
-    const { type, field, search, sort, status } = req.query;
     const { lists, pager, totalRecord } = await Board.searchList(
       req.query,
       BoardFile,
       BoardInit
     );
-    res.render('admin/board/board-list', { type, lists, pager, totalRecord });
+    res.render('admin/board/board-list', { lists, pager, totalRecord });
   } catch (err) {
     next(createError(err));
   }
