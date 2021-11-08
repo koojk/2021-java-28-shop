@@ -1,8 +1,11 @@
 <link rel="stylesheet" href="/css/<%= currents[1] %>-<%= boardType %>.css">
 <article class="board-container default-type update-page">
-  <form action="/<%= currents[0] %>/<%= currents[1] %>" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="id" value="1">
-    <input type="hidden" name="_method" value="PUT">
+  <form action="<%= goPath %>" method="POST" enctype="multipart/form-data">
+    <% for(let v of goLists) { %>
+      <input type="hidden" name="<%= v.key %>" value="<%= v.value %>">
+    <% } %>
+    <input type="hidden" name="id" value="<%= list.id %>">
+    <input type="hidden" name="type" value="update">
     <table class="table border-bottom">
       <tbody>
         <tr>
