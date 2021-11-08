@@ -31,7 +31,7 @@
                 <% let { thumbSrc, name, id, type } = list.files[i]; %>
                   <img src="<%= thumbSrc %>" alt="<%= name %>" class="img">
                   <div class="file"><%= name %></div>
-                  <button type="button" class="btn btn-sm btn-danger" data-idx="<%= id %>" onclick="onDeleteFile('<%= id %>')">삭제</button>
+                  <button type="button" class="btn btn-sm btn-danger" data-idx="<%= id %>" onclick="onDeleteFile('<%= id %>', this)">삭제</button>
                 <% } %>
 							</div>
               <input type="file" name="img" class="form-control-file mb-2">
@@ -46,7 +46,7 @@
               <% if(list.files[i] && list.files[i].type === 'F') { %>
               <% let { name, id, type } = list.files[i]; %>
               <div class="file"><%= name %></div>
-              <button type="button" class="btn btn-sm btn-danger" onclick="onDeleteFile('<%= id %>')">삭제</button>
+              <button type="button" class="btn btn-sm btn-danger" onclick="onDeleteFile('<%= id %>', this)">삭제</button>
               <% } %>
             </div>
             <input type="file" name="pds" class="form-control-file mb-2">
@@ -62,3 +62,5 @@
     </div>
   </form>
 </article>
+<script src="/js/axios.min.js"></script>
+<script src="/js/<%= currents[1] %>/<%= boardType %>-update.js"></script>
