@@ -6,6 +6,7 @@ module.exports = {
       {
         path: '/admin/user',
         link: '/admin/user',
+        status: 8,
         src: 'b1',
       },
       {
@@ -16,6 +17,7 @@ module.exports = {
       {
         path: '/admin/order',
         link: '/admin/order',
+        status: 8,
         src: 'b3',
       },
       {
@@ -54,4 +56,4 @@ module.exports = {
       { path: '/admin/board', name: '게시물 관리' },
     ],
   },
-}
+};
