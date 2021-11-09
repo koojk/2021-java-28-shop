@@ -28,12 +28,11 @@ module.exports = (_field = 'query', addQuery = []) => {
       goQuery += `&sort=${req[_field].sort}`;
     }
 
-    res.locals.goPager = goPath + '?' + goQuery;
-    res.locals.goList = goPath + '?' + goQuery + `&page=${req[_field].page}`;
+    res.locals.goPager = `${goPath}?${goQuery}`;
+    res.locals.goList = `${goPath}?${goQuery}&page=${req[_field].page}`;
     res.locals.goPath = goPath;
-    res.locals.goQuery = goQuery + `&page=${req[_field].page}`;
-    res.locals.goView =
-      goPath + '/' + req.params.id + '?' + goQuery + `&page=${req[_field].page}`;
+    res.locals.goQuery = `${goQuery}&page=${req[_field].page}`;
+    res.locals.goView = `${goPath}/${req.params.id}?${goQuery}&page=${req[_field].page}`;
 
     res.locals.goLists = [
       { key: 'page', value: req[_field].page },
