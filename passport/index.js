@@ -10,7 +10,7 @@
 */
 
 const local = require('./local-strategy');
-const User = require('../models');
+const { User } = require('../models');
 
 const serialize = (user, done) => {
   done(null, user.id);
