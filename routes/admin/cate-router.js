@@ -1,22 +1,22 @@
-const path = require('path')
-const express = require('express')
-const router = express.Router()
-const { error } = require('../../modules/util')
+const path = require('path');
+const express = require('express');
+const router = express.Router();
+const { error } = require('../../modules/util');
 
 router.get('/', (req, res, next) => {
-  res.render('admin/cate/cate', { css: 'admin-cate' })
-})
+  res.render('admin/cate/cate', {});
+});
 
 router.put('/', (req, res, next) => {
-  res.send('/admin/cate:PUT')
-})
+  res.send('/admin/cate:PUT');
+});
 
 router.delete('/', (req, res, next) => {
-  res.send('/admin/cate:DELETE')
-})
+  res.send('/admin/cate:DELETE');
+});
 
 router.post('/', (req, res, next) => {
-  res.send('/admin/cate:POST')
-})
+  res.send('/admin/cate:POST');
+});
 
-module.exports = { name: '/cate', router }
+module.exports = { name: '/cate', router };
