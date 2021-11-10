@@ -1,10 +1,12 @@
 var core = {};
-var plugins = ['contextmenu', 'dnd', 'state', 'wholerow', 'changed'];
+var plugins = ['contextmenu', 'dnd', 'search', 'state', 'wholerow', 'changed'];
 
 core.themes = {
-  variant: true,
+  variant: 'large',
   striped: true,
 };
+
+core.check_callback = true;
 
 core.data = {
   url: function (node) {
@@ -16,10 +18,37 @@ core.data = {
 };
 
 function onChangedTree(e, data) {
-  console.log(data.changed.selected); // newly selected
-  console.log(data.changed.deselected); // newly deselected
+  /* var json = $('#jstreeWrap').jstree(true).get_json('#');
+  axios
+    .post('/api/tree', { json })
+    .then(function (r) {
+      console.log(r);
+    })
+    .catch(function (err) {
+      console.log(err);
+    }); */
+}
+
+function onCreateTree(e, data) {
+  console.log(data);
+}
+
+function onUpdateTree() {
+  var json = $('#jstreeWrap').jstree(true).get_json('#');
+  axios
+    .post('/api/tree', { json })
+    .then(function (r) {
+      console.log('hi');
+      $('#jstreeWrap').jstree().refresh();
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
 }
 
 $('#jstreeWrap')
   .jstree({ core: core, plugins: plugins })
-  .on('changed.jstree', onChangedTree);
+  .on('create_node.jstree', onCreateTree)
+  .on('rename_node.jstree', onUpdateTree)
+  .on('move_node.jstree', onUpdateTree)
+  .on('delete_node.jstree', onUpdateTree);
