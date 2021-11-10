@@ -17,7 +17,9 @@ router.post('/', queries('body'), async (req, res, next) => {
 
 router.delete('/', queries('body'), async (req, res, next) => {
   try {
-    await BoardComment.destroy({ where: { id: req.body.id } });
+    await BoardComment.destroy({
+      where: { id: req.body.id },
+    });
     res.redirect('/admin/board/' + req.body.board_id + '?' + res.locals.goQuery);
   } catch (err) {
     next(createError(err));
