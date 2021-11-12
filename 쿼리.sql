@@ -17,9 +17,17 @@ SELECT
 	COUNT(DISTINCT(board_id))
 FROM boardcounter;
 
+SELECT * from boardfile ORDER BY id DESC; 
 
 
-
-
-
-
+SELECT 
+`Product`.*, `ProductFiles`.`id` AS `ProductFiles.id`, `ProductFiles`.`saveName` AS `ProductFiles.saveName`, `ProductFiles`.`fileType` AS `ProductFiles.fileType` 
+FROM (
+	SELECT `Product`.`id`, `Product`.`title`, `Product`.`priceOrigin`, `Product`.`priceSale`, `Product`.`amount`, `Product`.`status`, `Product`.`summary`, `Product`.`content`, `Product`.`readCounter`, `Product`.`createdAt`, `Product`.`updatedAt`, `Product`.`deletedAt` 
+	FROM `product` AS `Product` 
+	WHERE `Product`.`deletedAt` IS NULL 
+	ORDER BY `Product`.`id` DESC LIMIT 0, 10) AS `Product` 
+LEFT OUTER JOIN `productfile` AS `ProductFiles` 
+ON `Product`.`id` = `ProductFiles`.`prd_id` 
+AND (`ProductFiles`.`deletedAt` IS NULL) 
+ORDER BY `Product`.`id` DESC, `ProductFiles`.`id` ASC;
