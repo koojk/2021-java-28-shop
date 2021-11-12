@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="/css/jstree/style.min.css">
 <section class="prd-wrapper wrapper form-wrapper">
   <h4 class="title bullet my-2">상품 등록</h4>
-  <form action="/<%= currents[0] %>/<%= currents[1] %>" method="POST"  name="prdCreateForm">
+  <form action="/<%= currents[0] %>/<%= currents[1] %>" method="POST"  name="prdCreateForm" enctype="multipart/form-data">
     <input type="hidden" name="cate">
     <table class="table border-bottom">
       <tbody>
@@ -77,8 +77,16 @@
         <tr>
           <td>이미지 첨부</td>
           <td>
-            <% for(let i=1; i<=10; i++) { %> 
+            <% for(let i=1; i<=5; i++) { %> 
               <input type="file" name="img" class="form-control-file mb-2">
+            <% } %>
+          </td>
+        </tr>
+        <tr>
+          <td>상세내용 첨부</td>
+          <td>
+            <% for(let i=1; i<=2; i++) { %> 
+              <input type="file" name="detail" class="form-control-file mb-2">
             <% } %>
           </td>
         </tr>
