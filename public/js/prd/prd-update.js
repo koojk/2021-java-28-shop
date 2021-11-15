@@ -93,9 +93,6 @@ var quill = new Quill('#editor', {
   theme: 'snow',
 });
 
-// const delta = quill.clipboard.convert(html);
-// quill.setContents(delta);
-
 $('form[name="prdCreateForm"]').submit(onSubmitPrdCreateForm);
 function onSubmitPrdCreateForm(e) {
   e.preventDefault();
