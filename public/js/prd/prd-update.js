@@ -55,7 +55,9 @@ function onCloseModal() {
     }
     title += allData[v].text;
     html += '<div class="tree-data">' + title + '</div>';
-    $('.prd-wrapper form[name="prdCreateForm"] input[name="cate"]').val(cate.join(','));
+    $('.prd-wrapper form[name="prdCreateForm"] input[name="cate"]').val(
+      cate.join(',')
+    );
   }
   $('.prd-wrapper .selected-tree').html(html);
 }
@@ -103,4 +105,29 @@ function onSubmitPrdCreateForm(e) {
   }
   this.content.value = quill.root.innerHTML;
   this.submit();
+}
+
+function onDeleteFile(id, el) {
+  if (
+    confirm('파일을 삭제하시겠습니까?\n삭제하신 파일은 되돌릴 수 없습니다.')
+  ) {
+    axios
+      .delete('/admin/api/file/' + id + '?modelName=ProductFile')
+      .then(onSucess)
+      .catch(onError);
+  }
+  function onSucess(r) {
+    if (r.data.code == 200) {
+      var html =
+        '<input type="file" name="' +
+        $(el).data('name') +
+        '" class="form-control-file mb-2" />';
+      $(el).parent().after(html);
+      $(el).parent().remove();
+    }
+  }
+  function onError(err) {
+    console.log(err);
+    console.log(err.response);
+  }
 }
