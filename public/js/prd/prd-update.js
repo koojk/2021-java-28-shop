@@ -27,7 +27,7 @@ $('#jstreeWrap')
 
 function onLoadedTree(e, data) {
   allData = data.instance._model.data;
-  $('#jstreeWrap').jstree('check_node', ['j1_11', 'j1_5']);
+  // $('#jstreeWrap').jstree('check_node', ['j1_11', 'j1_5']);
   onCloseModal();
 }
 
@@ -55,9 +55,7 @@ function onCloseModal() {
     }
     title += allData[v].text;
     html += '<div class="tree-data">' + title + '</div>';
-    $('.prd-wrapper form[name="prdCreateForm"] input[name="cate"]').val(
-      cate.join(',')
-    );
+    $('.prd-wrapper form[name="prdCreateForm"] input[name="cate"]').val(cate.join(','));
   }
   $('.prd-wrapper .selected-tree').html(html);
 }
