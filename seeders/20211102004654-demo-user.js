@@ -5,7 +5,7 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     const insertUsers = [];
     insertUsers.push({
-      userid: 'booldook',
+      userid: 'koojk',
       userpw: await bcrypt.hash('111111' + salt, Number(round)),
       username: '최고관리자',
       email: 'booldook@gmail.com',
@@ -16,6 +16,21 @@ module.exports = {
       addrComment: '(창천동)',
       addrDetail: '7층',
       status: '9',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+    insertUsers.push({
+      userid: 'demoUser',
+      userpw: await bcrypt.hash('111111' + salt, Number(round)),
+      username: '데모관리자',
+      email: 'demo@demo.com',
+      tel: '010-3333-8888',
+      addrPost: '12345',
+      addrRoad: '서울시 마포구 노고산로',
+      addrJibun: '서울시 마포구 창천동',
+      addrComment: '(창천동)',
+      addrDetail: '7층',
+      status: '7',
       createdAt: new Date(),
       updatedAt: new Date(),
     });
