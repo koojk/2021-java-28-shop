@@ -4,6 +4,7 @@ const router = express.Router();
 const { escape, unescape } = require('html-escaper');
 const createError = require('http-errors');
 const { error } = require('../../modules/util');
+const _ = require('lodash');
 const { Product, ProductFile, CateProduct, Cate } = require('../../models');
 const uploader = require('../../middlewares/multer-mw');
 const afterUploader = require('../../middlewares/after-multer-mw');
@@ -33,7 +34,7 @@ router.get('/:id', queries(), async (req, res, next) => {
   try {
     const prd = await Product.findProduct(req.params.id, Cate, ProductFile);
     const cate = prd.Cates.map((v) => v.id);
-    res.render('admin/prd/prd-update', { prd, cate });
+    res.render('admin/prd/prd-update', { prd, cate, _ });
   } catch (err) {
     next(createError(err));
   }

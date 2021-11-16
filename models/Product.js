@@ -97,9 +97,8 @@ module.exports = (sequelize, { DataTypes, Op }) => {
     data.content = unescape(data.content);
     data.imgs = [];
     data.details = [];
-
-    for (let i = 0; i < 5; i++) {
-      if (data.ProductFiles[i].filedNum == i + 1) {
+    if (data.ProductFiles.length) {
+      for (let file of data.ProductFiles) {
         let obj = {
           thumbSrc: relPath(file.saveName),
           name: file.oriName,
@@ -111,7 +110,6 @@ module.exports = (sequelize, { DataTypes, Op }) => {
         else data.imgs.push(obj);
       }
     }
-
     delete data.createdAt;
     delete data.deletedAt;
     delete data.ProductFiles;
