@@ -41,8 +41,24 @@ router.get('/:id', queries(), async (req, res, next) => {
 
 router.post(
   '/',
-  uploader.fields([{ name: 'img' }, { name: 'detail' }]),
-  afterUploader(['img', 'detail']),
+  uploader.fields([
+    { name: 'img_1' },
+    { name: 'img_2' },
+    { name: 'img_3' },
+    { name: 'img_4' },
+    { name: 'img_5' },
+    { name: 'detail_1' },
+    { name: 'detail_2' },
+  ]),
+  afterUploader([
+    'img_1',
+    'img_2',
+    'img_3',
+    'img_4',
+    'img_5',
+    'detail_1',
+    'detail_2',
+  ]),
   queries('body'),
   async (req, res, next) => {
     try {
