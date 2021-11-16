@@ -4,7 +4,8 @@ const moment = require('moment');
 
 const location = (src) => path.join(__dirname, '../', src);
 
-const cutTail = (str, len = 12) => (str.length > len ? str.substr(0, len) + ' ...' : str);
+const cutTail = (str, len = 12) =>
+  str.length > len ? str.substr(0, len) + ' ...' : str;
 
 const telNumber = [
   '010',
@@ -55,7 +56,18 @@ const absPath = (file) =>
   path.join(__dirname, `../storages/${file.split('_')[0]}/${file}`);
 const moveFile = async (file) => {
   try {
-    let savePath = path.join(__dirname, '../storages-remove', file.split('_')[0]);
+    const isExist = await fs.pathExists(
+      __dirname,
+      '../storages/',
+      file.substr(0, 6),
+      './thumb',
+      file
+    );
+    let savePath = path.join(
+      __dirname,
+      '../storages-remove',
+      file.split('_')[0]
+    );
     let oldPath = absPath(file);
     await fs.ensureDir(savePath); // D:\ ~ /210909
     savePath = path.join(savePath, file); // D:\ ~ /210909/210909_fjk2134-askdf2103.jpg
@@ -75,7 +87,8 @@ const getIcon = (file) => {
   return '';
 };
 
-const isImg = (file) => (imgExt.includes(path.extname(file).substr(1)) ? true : false);
+const isImg = (file) =>
+  imgExt.includes(path.extname(file).substr(1)) ? true : false;
 
 const alert = (msg, loc = '/') => {
   return `<script>
