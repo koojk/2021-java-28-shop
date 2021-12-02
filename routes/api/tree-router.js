@@ -10,9 +10,7 @@ const { isAdmin } = require('../../middlewares/auth-mw');
 
 router.get('/', async (req, res, next) => {
   try {
-    const tree = await fs.readJSON(
-      path.join(__dirname, '../../json/tree.json')
-    );
+    const tree = await fs.readJSON(path.join(__dirname, '../../json/tree.json'));
     res.status(200).json(tree);
   } catch (err) {
     res.status(500).json(err);
