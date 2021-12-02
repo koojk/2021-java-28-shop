@@ -63,11 +63,7 @@ const absThumbPath = (file) =>
 
 const moveFile = async (file) => {
   try {
-    let savePath = path.join(
-      __dirname,
-      '../storages-remove',
-      file.split('_')[0]
-    );
+    let savePath = path.join(__dirname, '../storages-remove', file.split('_')[0]);
     let saveThumbPath = path.join(savePath, 'thumb');
     let oldPath = absPath(file);
     await fs.ensureDir(savePath); // D:\ ~ /210909
