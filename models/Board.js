@@ -126,12 +126,7 @@ module.exports = (sequelize, { DataTypes, Op }) => {
     return data;
   };
 
-  Board.getList = async function (
-    id,
-    query,
-    BoardFile = null,
-    BoardComment = null
-  ) {
+  Board.getList = async function (id, query, BoardFile = null, BoardComment = null) {
     let pager = null;
     const include = [];
     if (BoardFile) include.push({ model: BoardFile });
