@@ -3,18 +3,18 @@ const router = express.Router();
 
 const queries = require('../../middlewares/query-mw');
 const { Product, ProductFile, CateProduct, Cate } = require('../../models');
+const { findLastId } = require('../../modules/util');
 
 // 리스트
 router.get('/', queries(), async (req, res, next) => {
   try {
-    const { lists, pager, totalRecord } = await Product.getLists(
-      req.query,
-      ProductFile
-    );
-    // res.json({ lists, pager, totalRecord });
-    res.render('admin/prd/prd-list', { lists, pager, totalRecord });
+    const [rs] = await Cate.getAllCate();
+    // const rs = await Cate.getChildren(req.query);
+    // const rs = await Cate.getProduct(req.query, Product, ProductFile);
+    const rs2 = findLastId(rs, []);
+    res.status(200).json({ rs, rs2 });
   } catch (err) {
-    next(createError(err));
+    res.status(500).json(err);
   }
 });
 
