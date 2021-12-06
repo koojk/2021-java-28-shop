@@ -7,7 +7,7 @@ const config = require('../config/config')[env];
 config.timezone = '+09:00';
 const db = {};
 
-Sequelize.prototype.getWhere = function ({ field, search }) {
+Sequelize.prototype.getWhere = function ({ field, search }, status) {
   let where = {};
   if (field === 'tel') {
     // 회원검색
@@ -28,7 +28,7 @@ Sequelize.prototype.getWhere = function ({ field, search }) {
   } else {
     where = search ? { [field]: { [Op.like]: '%' + search + '%' } } : {};
   }
-  return where;
+  return status ? { [Op.and]: [{ ...where }, { status }] } : where;
 };
 
 const sequelize = new Sequelize(

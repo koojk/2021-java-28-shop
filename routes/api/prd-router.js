@@ -8,11 +8,8 @@ const { findLastId } = require('../../modules/util');
 // 리스트
 router.get('/', queries(), async (req, res, next) => {
   try {
-    const [rs] = await Cate.getAllCate();
-    // const rs = await Cate.getChildren(req.query);
-    // const rs = await Cate.getProduct(req.query, Product, ProductFile);
-    const rs2 = findLastId(rs, []);
-    res.status(200).json({ rs, rs2 });
+    const rs = await Cate.getProduct(req.query, Product, ProductFile);
+    res.status(200).json(rs);
   } catch (err) {
     res.status(500).json(err);
   }

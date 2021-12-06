@@ -25,7 +25,7 @@ module.exports = (sequelize, { DataTypes, Op }) => {
       charset: 'utf8',
       collate: 'utf8_general_ci',
       tableName: 'cate',
-      paranoid: true,
+      paranoid: false,
     }
   );
 
@@ -63,13 +63,28 @@ module.exports = (sequelize, { DataTypes, Op }) => {
 
   Cate.getProduct = async function (query, Product, ProductFile) {
     try {
-      const { cid, field, search, sort } = query;
-      const rs = await this.findAll({
-        where: { id: cid },
+      const { cid = 'j1_1', field, search, sort, grp } = query;
+      const [allTree] = await this.getAllCate();
+      const myTree = findObj(allTree, cid);
+      const lastTree = findLastId(myTree, []);
+      /* const rs = await this.findAll({
+        where: { id: { [Op.or]: [...lastTree] } },
+        attributes: ['id'],
         include: [
           {
             model: Product,
-            where: sequelize.getWhere(query),
+            through: { attributes: [] },
+            attributes: [
+              'id',
+              'title',
+              'priceOrigin',
+              'priceSale',
+              'amount',
+              'status',
+              'summary',
+              'readCounter',
+            ],
+            where: sequelize.getWhere(query, '2'),
             order: [[field, sort]],
             include: [
               {
@@ -80,6 +95,36 @@ module.exports = (sequelize, { DataTypes, Op }) => {
                   [ProductFile, 'fieldNum', 'ASC'],
                 ],
               },
+            ],
+          },
+        ],
+      }); */
+      const rs = await Product.findAll({
+        where: sequelize.getWhere(query, '2'),
+        attributes: [
+          'id',
+          'title',
+          'priceOrigin',
+          'priceSale',
+          'amount',
+          'status',
+          'summary',
+          'readCounter',
+        ],
+        include: [
+          {
+            model: Cate,
+            through: { attributes: [] },
+            attributes: [['id', 'cid']],
+            where: { id: { [Op.or]: [...lastTree] } },
+            order: [[field, sort]],
+          },
+          {
+            model: ProductFile,
+            attributes: ['id', 'saveName', 'fileType', 'fieldNum'],
+            order: [
+              [ProductFile, 'fileType', 'ASC'],
+              [ProductFile, 'fieldNum', 'ASC'],
             ],
           },
         ],

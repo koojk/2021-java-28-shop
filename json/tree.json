@@ -28,11 +28,11 @@
         "data": {},
         "children": [
           {
-            "id": "j1_7",
-            "text": "상의",
+            "id": "j1_26",
+            "text": "아우터",
             "icon": true,
-            "li_attr": { "id": "j1_7" },
-            "a_attr": { "href": "#", "id": "j1_7_anchor" },
+            "li_attr": { "id": "j1_26" },
+            "a_attr": { "href": "#", "id": "j1_26_anchor" },
             "state": {
               "loaded": true,
               "opened": false,
@@ -44,11 +44,43 @@
             "type": "default"
           },
           {
-            "id": "j1_9",
+            "id": "j1_21",
+            "text": "상의",
+            "icon": true,
+            "li_attr": { "id": "j1_21" },
+            "a_attr": { "href": "#", "id": "j1_21_anchor" },
+            "state": {
+              "loaded": true,
+              "opened": false,
+              "selected": false,
+              "disabled": false
+            },
+            "data": {},
+            "children": [],
+            "type": "default"
+          },
+          {
+            "id": "j1_27",
             "text": "하의",
             "icon": true,
-            "li_attr": { "id": "j1_9" },
-            "a_attr": { "href": "#", "id": "j1_9_anchor" },
+            "li_attr": { "id": "j1_27" },
+            "a_attr": { "href": "#", "id": "j1_27_anchor" },
+            "state": {
+              "loaded": true,
+              "opened": false,
+              "selected": false,
+              "disabled": false
+            },
+            "data": {},
+            "children": [],
+            "type": "default"
+          },
+          {
+            "id": "j1_28",
+            "text": "내의",
+            "icon": true,
+            "li_attr": { "id": "j1_28" },
+            "a_attr": { "href": "#", "id": "j1_28_anchor" },
             "state": {
               "loaded": true,
               "opened": false,
@@ -76,22 +108,6 @@
         },
         "data": {},
         "children": [
-          {
-            "id": "j1_11",
-            "text": "상의",
-            "icon": true,
-            "li_attr": { "id": "j1_11" },
-            "a_attr": { "href": "#", "id": "j1_11_anchor" },
-            "state": {
-              "loaded": true,
-              "opened": false,
-              "selected": false,
-              "disabled": false
-            },
-            "data": {},
-            "children": [],
-            "type": "default"
-          },
           {
             "id": "j1_13",
             "text": "하의",
