@@ -1,0 +1,15 @@
+SELECT 
+	`Product`.*, `Cates`.`id` AS `Cates.id`, `Cates`.`name` AS `Cates.name`, `Cates`.`parents` AS `Cates.parents`, `Colors`.`id` AS `Colors.id`, `Colors`.`name` AS `Colors.name`, `Colors`.`code` AS `Colors.code`, `Sections`.`id` AS `Sections.id`, `Sections`.`name` AS `Sections.name`, `Sections`.`color` AS `Sections.color`, `ProductFiles`.`id` AS `ProductFiles.id`, `ProductFiles`.`saveName` AS `ProductFiles.saveName`, `ProductFiles`.`fileType` AS `ProductFiles.fileType`, `ProductFiles`.`fieldNum` AS `ProductFiles.fieldNum`
+  FROM (
+    SELECT `Product`.`id`, `Product`.`title`, `Product`.`priceOrigin`, `Product`.`priceSale`, `Product`.`amount`, `Product`.`star`, `Product`.`status`, `Product`.`summary`, `Product`.`readCounter` FROM `product` AS `Product` WHERE (`Product`.`deletedAt` IS NULL AND (`Product`.`status` = '2')
+    ) 
+    AND ( 
+      SELECT `cate_product`.`cate_id` FROM `cate_product` AS `cate_product` INNER JOIN `cate` AS `Cate` ON `cate_product`.`cate_id` = `Cate`.`id` AND (`Cate`.`id` = 'j1_26' OR `Cate`.`id` = 'j1_21' OR `Cate`.`id` = 'j1_30' OR `Cate`.`id` = 'j1_27' OR `Cate`.`id` = 'j1_28' OR `Cate`.`id` = 'j1_13' OR `Cate`.`id` = 'j1_15' OR `Cate`.`id` = 'j1_32' OR `Cate`.`id` = 'j1_17' OR `Cate`.`id` = 'j1_29' OR `Cate`.`id` = 'j1_19' OR `Cate`.`id` = 'j1_20' OR `Cate`.`id` = 'j1_22' OR `Cate`.`id` = 'j1_23' OR `Cate`.`id` = 'j1_24' OR `Cate`.`id` = 'j1_25') WHERE (`Product`.`id` = `cate_product`.`prd_id`) LIMIT 1 ) IS NOT NULL 
+    AND ( 
+      SELECT `section_product`.`prd_id` FROM `section_product` AS `section_product` INNER JOIN `section` AS `Section` ON `section_product`.`section_id` = `Section`.`id` AND `Section`.`name` = 'New' WHERE (`Product`.`id` = `section_product`.`prd_id`) LIMIT 1 
+    ) 
+IS NOT NULL LIMIT 0, 15) AS `Product` 
+  INNER JOIN ( `cate_product` AS `Cates->cate_product` INNER JOIN `cate` AS `Cates` ON `Cates`.`id` = `Cates->cate_product`.`cate_id`) ON `Product`.`id` = `Cates->cate_product`.`prd_id` AND (`Cates`.`id` = 'j1_26' OR `Cates`.`id` = 'j1_21' OR `Cates`.`id` = 'j1_30' OR `Cates`.`id` = 'j1_27' OR `Cates`.`id` = 'j1_28' OR `Cates`.`id` = 'j1_13' OR `Cates`.`id` = 'j1_15' OR `Cates`.`id` = 'j1_32' 
+OR `Cates`.`id` = 'j1_17' OR `Cates`.`id` = 'j1_29' OR `Cates`.`id` = 'j1_19' OR `Cates`.`id` = 'j1_20' OR `Cates`.`id` = 'j1_22' OR `Cates`.`id` = 'j1_23' OR `Cates`.`id` = 'j1_24' OR `Cates`.`id` = 'j1_25') 
+LEFT OUTER JOIN ( `color_product` AS `Colors->color_product` INNER JOIN `color` AS `Colors` ON `Colors`.`id` = `Colors->color_product`.`color_id`) ON `Product`.`id` = `Colors->color_product`.`prd_id` INNER JOIN ( `section_product` AS `Sections->section_product` INNER JOIN `section` AS `Sections` ON `Sections`.`id` = `Sections->section_product`.`section_id`) ON `Product`.`id` = `Sections->section_product`.`prd_id` AND `Sections`.`name` 
+= 'New' LEFT OUTER JOIN `productfile` AS `ProductFiles` ON `Product`.`id` = `ProductFiles`.`prd_id` AND (`ProductFiles`.`deletedAt` IS NULL);

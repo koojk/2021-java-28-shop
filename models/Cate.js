@@ -13,6 +13,14 @@ module.exports = (sequelize, { DataTypes, Op }) => {
         allowNull: false,
         unique: true,
       },
+      name: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+      },
+      parents: {
+        type: DataTypes.STRING(255),
+        allowNull: false,
+      },
     },
     {
       charset: 'utf8',

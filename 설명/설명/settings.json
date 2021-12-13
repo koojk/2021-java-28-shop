@@ -1,0 +1,74 @@
+{
+  "editor.fontFamily": "D2coding",
+  "editor.fontSize": 26,
+  "editor.wordWrap": "bounded",
+  "editor.dragAndDrop": false,
+  "terminal.integrated.fontSize": 20,
+  "git.enableSmartCommit": true,
+  "git.autofetch": true,
+  "explorer.compactFolders": false,
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "CleanCSS.options": {
+    "format": "keep-breaks",
+    "compatibility": "ie11"
+  },
+  "workbench.iconTheme": "vscode-icons",
+  "editor.renderWhitespace": "all",
+  "editor.minimap.maxColumn": 50,
+  "explorer.confirmDragAndDrop": false,
+  "liveServer.settings.donotVerifyTags": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.cursorStyle": "line",
+  "liveSassCompile.settings.excludeList": [
+    "**/node_modules/**",
+    "**/.vscode/**",
+    "**/.history/**"
+  ],
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".css",
+      "savePath": "~/../../css"
+    }
+  ],
+  "liveSassCompile.settings.generateMap": false,
+  "workbench.colorTheme": "Default Light+",
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.tabSize": 2,
+  "workbench.startupEditor": "none",
+  "editor.letterSpacing": -1,
+  "editor.suggest.showInlineDetails": false,
+  "editor.suggest.showStatusBar": true,
+  "editor.suggestFontSize": 20,
+  "editor.suggestLineHeight": 20,
+  "editor.inlayHints.fontSize": 14,
+  "editor.wordWrapColumn": 100,
+  "vsicons.dontShowNewVersionMessage": true,
+  "editor.minimap.enabled": false,
+  "color-manager.insertClassicHex": true,
+  "explorer.confirmDelete": false,
+  "liveSassCompile.settings.autoprefix": [],
+  "liveSassCompile.settings.includeItems": [],
+  "files.eol": "\n",
+  "git.confirmSync": false,
+  "prettier.singleQuote": true,
+  "editor.accessibilitySupport": "off",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "html.format.endWithNewline": true,
+  "prettier.endOfLine": "lf",
+  "prettier.ignorePath": ".prettierignore",
+  "files.exclude": {
+    "**/.idea": true
+  },
+  "editor.formatOnType": true,
+  "html.format.enable": false,
+  "html.validate.scripts": false,
+  "prettier.printWidth": 86,
+  "window.zoomLevel": 2
+}
