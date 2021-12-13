@@ -63,7 +63,11 @@ const absThumbPath = (file) =>
 
 const moveFile = async (file) => {
   try {
-    let savePath = path.join(__dirname, '../storages-remove', file.split('_')[0]);
+    let savePath = path.join(
+      __dirname,
+      '../storages-remove',
+      file.split('_')[0]
+    );
     let saveThumbPath = path.join(savePath, 'thumb');
     let oldPath = absPath(file);
     await fs.ensureDir(savePath); // D:\ ~ /210909
@@ -186,6 +190,17 @@ function findAllId(_obj, arr) {
   return arr;
 }
 
+// _obj의 자식들의 값을 리턴하는 재귀함수2
+function findAllId2(_obj, arr) {
+  if (_obj.children) {
+    for (let v of _obj.children) {
+      findAllId2(v, arr);
+    }
+  }
+  arr.push({ id: _obj.id, name: _obj.text });
+  return arr;
+}
+
 module.exports = {
   location,
   cutTail,
@@ -206,5 +221,6 @@ module.exports = {
   findLastId,
   findChildId,
   findAllId,
+  findAllId2,
   findObj,
 };

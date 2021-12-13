@@ -1,5 +1,5 @@
-.env.dev
-.env.pro
+.env.development
+.env.production
 storages
 storages-remove
 

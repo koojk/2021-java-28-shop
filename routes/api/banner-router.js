@@ -9,17 +9,13 @@ const boardInit = require('../../middlewares/boardinit-mw');
 router.get(
   '/',
   (req, res, next) => {
-    req.boardId = 5;
+    req.boardId = 4;
     next();
   },
   boardInit(),
   async (req, res, next) => {
     try {
-      const { lists, pager } = await Board.getList(
-        req.query.id,
-        null,
-        BoardFile
-      );
+      const { lists, pager } = await Board.getList(req.query.id, null, BoardFile);
       const list = { content: lists[0].content };
       list.files = lists[0].BoardFiles.map((v) => v.saveName);
       res.status(200).json(list);
