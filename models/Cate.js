@@ -1,14 +1,7 @@
 const _ = require('lodash');
 const fs = require('fs-extra');
 const path = require('path');
-const {
-  findLastId,
-  findObj,
-  findAllId,
-  findChildId,
-} = require('../modules/util');
-const { dateFormat, relPath } = require('../modules/util');
-const Product = require('./Product');
+const { findObj, findChildId } = require('../modules/util');
 
 module.exports = (sequelize, { DataTypes, Op }) => {
   const Cate = sequelize.define(
@@ -56,80 +49,6 @@ module.exports = (sequelize, { DataTypes, Op }) => {
       const myTree = findObj(allTree[0], cateId);
       const childTree = findChildId(myTree, []);
       return { allTree, myTree, childTree };
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  Cate.getProduct = async function (query, Product, ProductFile) {
-    try {
-      const { cid = 'j1_1', field, search, sort, grp } = query;
-      const [allTree] = await this.getAllCate();
-      const myTree = findObj(allTree, cid);
-      const lastTree = findLastId(myTree, []);
-      /* const rs = await this.findAll({
-        where: { id: { [Op.or]: [...lastTree] } },
-        attributes: ['id'],
-        include: [
-          {
-            model: Product,
-            through: { attributes: [] },
-            attributes: [
-              'id',
-              'title',
-              'priceOrigin',
-              'priceSale',
-              'amount',
-              'status',
-              'summary',
-              'readCounter',
-            ],
-            where: sequelize.getWhere(query, '2'),
-            order: [[field, sort]],
-            include: [
-              {
-                model: ProductFile,
-                attributes: ['id', 'saveName', 'fileType', 'fieldNum'],
-                order: [
-                  [ProductFile, 'fileType', 'ASC'],
-                  [ProductFile, 'fieldNum', 'ASC'],
-                ],
-              },
-            ],
-          },
-        ],
-      }); */
-      const rs = await Product.findAll({
-        where: sequelize.getWhere(query, '2'),
-        attributes: [
-          'id',
-          'title',
-          'priceOrigin',
-          'priceSale',
-          'amount',
-          'status',
-          'summary',
-          'readCounter',
-        ],
-        include: [
-          {
-            model: Cate,
-            through: { attributes: [] },
-            attributes: [['id', 'cid']],
-            where: { id: { [Op.or]: [...lastTree] } },
-            order: [[field, sort]],
-          },
-          {
-            model: ProductFile,
-            attributes: ['id', 'saveName', 'fileType', 'fieldNum'],
-            order: [
-              [ProductFile, 'fileType', 'ASC'],
-              [ProductFile, 'fieldNum', 'ASC'],
-            ],
-          },
-        ],
-      });
-      return rs;
     } catch (err) {
       console.log(err);
     }
