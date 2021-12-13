@@ -1,16 +1,13 @@
-const _ = require('lodash');
-const { dateFormat, relPath } = require('../modules/util');
-
 module.exports = (sequelize, { DataTypes, Op }) => {
-  const CateProduct = sequelize.define(
-    'CateProduct',
+  const ColorProduct = sequelize.define(
+    'ColorProduct',
     {
       prd_id: {
         type: DataTypes.INTEGER(10).UNSIGNED,
         primaryKey: true,
         allowNull: true,
       },
-      cate_id: {
+      color_id: {
         type: DataTypes.INTEGER(10).UNSIGNED,
         primaryKey: true,
         allowNull: true,
@@ -19,29 +16,29 @@ module.exports = (sequelize, { DataTypes, Op }) => {
     {
       charset: 'utf8',
       collate: 'utf8_general_ci',
-      tableName: 'cate_product',
+      tableName: 'color_product',
     }
   );
 
-  CateProduct.associate = (models) => {
-    CateProduct.belongsTo(models.Cate, {
+  ColorProduct.associate = (models) => {
+    ColorProduct.belongsTo(models.Color, {
       foreignKey: {
-        name: 'cate_id',
+        name: 'color_id',
       },
       sourceKey: 'id',
-      through: 'cate_product',
+      through: 'color_product',
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
     });
-    CateProduct.belongsTo(models.Product, {
+    ColorProduct.belongsTo(models.Product, {
       foreignKey: {
         name: 'prd_id',
       },
       sourceKey: 'id',
-      through: 'cate_product',
+      through: 'color_product',
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
     });
   };
-  return CateProduct;
+  return ColorProduct;
 };

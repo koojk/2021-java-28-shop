@@ -6,6 +6,35 @@
   .red {
     color: red;
   }
+  .section-wrap {
+    @include flex;
+    label {
+      @include flex($v: center);
+      margin-right: 1.5em;
+      input {
+        margin-right: 0.325em;
+      }
+      .box {
+        padding: 0.25em 0.5em;
+        border-radius: 5px;
+      }
+    }
+  }
+  .color-wrap {
+    @include flex;
+    label {
+      @include flex($v: center);
+      margin-right: 1.5em;
+      input {
+        margin-right: 0.325em;
+      }
+      .circle {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+    }
+  }
   .modal-wrapper {
     @include flex($h: center, $v: center);
     @include layer($p: fixed, $l: 0, $t: 0, $i: 99);

@@ -52,6 +52,10 @@ module.exports = (sequelize, { DataTypes, Op }) => {
         type: DataTypes.TEXT,
         allowNull: true,
       },
+      start: {
+        type: DataTypes.DECIMAL(1, 1),
+        allowNull: true,
+      },
       readCounter: {
         type: DataTypes.INTEGER(10).UNSIGNED,
         defaultValue: 0,
@@ -80,6 +84,22 @@ module.exports = (sequelize, { DataTypes, Op }) => {
         name: 'prd_id',
       },
       through: 'cate_product',
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+    });
+    Product.belongsToMany(models.Color, {
+      foreignKey: {
+        name: 'prd_id',
+      },
+      through: 'color_product',
+      onUpdate: 'CASCADE',
+      onDelete: 'CASCADE',
+    });
+    Product.belongsToMany(models.Section, {
+      foreignKey: {
+        name: 'prd_id',
+      },
+      through: 'section_product',
       onUpdate: 'CASCADE',
       onDelete: 'CASCADE',
     });
@@ -142,11 +162,33 @@ module.exports = (sequelize, { DataTypes, Op }) => {
     }
   };
 
-  Product.findProduct = async function (id, Cate, ProductFile) {
+  Product.findProduct = async function (
+    id,
+    { Cate, ProductFile, Color, Section }
+  ) {
     const rs = await this.findOne({
       where: { id },
       order: [[ProductFile, 'id', 'asc']],
-      include: [{ model: Cate }, { model: ProductFile }],
+      include: [
+        { model: Cate },
+        {
+          model: ProductFile,
+        },
+        {
+          model: Color,
+          attributes: ['id'],
+          through: {
+            attributes: [],
+          },
+        },
+        {
+          model: Section,
+          attributes: ['id'],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
     });
     const data = rs.toJSON();
     data.updatedAt = dateFormat(data.updatedAt, 'H');

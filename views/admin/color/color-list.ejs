@@ -1,0 +1,15 @@
+<%- include('../../inc/head.ejs') %>
+<%- include('../../inc/header.ejs') %>
+<section class="color-wrapper list-wrapper wrapper">
+  <ul>
+    <%- include('./color-form.ejs', { color: '#333333', name: '', id: '' }) %>
+    <% 
+      for(let v of list) { 
+        let value = { color: v.code, method: 'PUT', id: v.id, name: v.name }
+    %>
+      <%- include('./color-form.ejs', value) %>
+    <% } %>
+  </ul>
+</section>
+<script src="/js/color/color.js"></script>
+<%- include('../../inc/foot.ejs') %>
