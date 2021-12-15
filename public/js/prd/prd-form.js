@@ -54,7 +54,9 @@ function onCloseModal() {
     }
     title += allData[v].text;
     html += '<div class="tree-data">' + title + '</div>';
-    $('.prd-wrapper form[name="prdCreateForm"] input[name="cate"]').val(cate.join(','));
+    $('.prd-wrapper form[name="prdCreateForm"] input[name="cate"]').val(
+      cate.join(',')
+    );
   }
   $('.prd-wrapper .selected-tree').html(html);
 }

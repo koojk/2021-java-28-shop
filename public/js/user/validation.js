@@ -51,7 +51,8 @@ email 검증
           params: { key: 'userid', value: useridEl.value.trim() },
         })
         .then(function (r) {
-          if (!r.data) return verifyFalse(useridEl, useridTxt, '아이디가 사용중입니다.');
+          if (!r.data)
+            return verifyFalse(useridEl, useridTxt, '아이디가 사용중입니다.');
           else {
             verifyTrue(useridEl, useridTxt, '사용할 수 있습니다.');
             axios
@@ -60,7 +61,11 @@ email 검증
               })
               .then(function (r) {
                 if (!r.data)
-                  return verifyFalse(emailEl, emailTxt, '이메일이 사용중입니다.');
+                  return verifyFalse(
+                    emailEl,
+                    emailTxt,
+                    '이메일이 사용중입니다.'
+                  );
                 else {
                   verifyTrue(emailEl, emailTxt);
                   f.submit();
@@ -87,12 +92,17 @@ email 검증
         userid === '' ? '아이디를 입력하세요' : '아이디는 6 ~ 24자 입니다.'
       );
     } else if (!validator.isAlphanumeric(userid)) {
-      return verifyFalse(useridEl, useridTxt, '아이디 형식이 올바르지 않습니다.');
+      return verifyFalse(
+        useridEl,
+        useridTxt,
+        '아이디 형식이 올바르지 않습니다.'
+      );
     } else {
       axios
         .get('/api/verify', { params: { key: 'userid', value: userid } })
         .then(function (r) {
-          if (r.data) validId = verifyTrue(useridEl, useridTxt, '사용할 수 있습니다.');
+          if (r.data)
+            validId = verifyTrue(useridEl, useridTxt, '사용할 수 있습니다.');
           else return verifyFalse(useridEl, useridTxt, '아이디를 확인하세요.');
         })
         .catch(function (err) {
@@ -123,7 +133,9 @@ email 검증
       return verifyFalse(
         passwd2El,
         passwd2Txt,
-        passwd2 === '' ? '패스워드를 입력하세요.' : '패스워드는 6 ~ 24자 입니다.'
+        passwd2 === ''
+          ? '패스워드를 입력하세요.'
+          : '패스워드는 6 ~ 24자 입니다.'
       );
     } else {
       return verifyTrue(passwd2El, passwd2Txt);

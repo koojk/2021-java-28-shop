@@ -5,7 +5,7 @@ module.exports = async (email) => {
     const transporter = nodemailer.createTransport({
       // MAIL_HOST=smtp.naver.com
       // MAIL_PORT=587
-      // MAIL_USER=booldook@naver.com
+      // MAIL_USER=kjh132465@naver.com
       // MAIL_PASS=
       service: 'Naver',
       host: process.env.MAIL_HOST,

@@ -112,9 +112,7 @@ function onSubmitPrdCreateForm(e) {
 }
 
 function onDeleteFile(id, el) {
-  if (
-    confirm('파일을 삭제하시겠습니까?\n삭제하신 파일은 되돌릴 수 없습니다.')
-  ) {
+  if (confirm('파일을 삭제하시겠습니까?\n삭제하신 파일은 되돌릴 수 없습니다.')) {
     axios
       .delete('/admin/api/file/' + id + '?modelName=ProductFile')
       .then(onSucess)

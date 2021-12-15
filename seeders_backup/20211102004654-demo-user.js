@@ -5,10 +5,10 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     const insertUsers = [];
     insertUsers.push({
-      userid: 'booldook',
+      userid: 'koojk',
       userpw: await bcrypt.hash('112233' + salt, Number(round)),
       username: '최고관리자',
-      email: 'booldook@gmail.com',
+      email: 'kljh0881@gmail.com',
       tel: '010-3333-8888',
       addrPost: '12345',
       addrRoad: '서울시 마포구 노고산로',
