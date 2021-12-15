@@ -80,9 +80,9 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     });
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < 10; i++) {
       insertGallery.push({
-        // 246 ~ 256
+        // 246 ~ 255
         binit_id: 3,
         user_id: 1,
         title: '관계사' + i,
